@@ -439,5 +439,6 @@ inline uint32_t EncryptFOV(float fov) {
 
     
 }
-//Old-vre-new-driver=0
+//Old-vre-new-driver=0x457C1D6
 //ver=V[ 0.01 ]
+//verMMM[ Y ]
