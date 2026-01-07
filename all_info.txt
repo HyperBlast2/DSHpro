@@ -1,0 +1,443 @@
+#pragma once
+#include <cstdint>
+
+// Main static class offsets (GameAssembly.dll + offset)
+constexpr uintptr_t BaseNetworkable_C = 0xd0c55b8;
+constexpr uintptr_t MainCamera_C = 0xd0d5c28;
+constexpr uintptr_t GC_HANDLES = 0xd3b3170;
+constexpr uintptr_t TOD_ASS_OFFSET = 0xd0b1fd8;
+constexpr uintptr_t GRAPHICS_OFFSET = 0xd0668d8;
+constexpr uintptr_t PlayerEyes_C = 0xd0a6600;
+constexpr uintptr_t GameManager_C = 0xd0ce120;
+constexpr uintptr_t BaseViewModel_C = 0xd0d4b80;
+constexpr uintptr_t Climate_C = 0xd0cd940;
+constexpr uintptr_t ItemIcon_C = 0xd072630;
+constexpr uintptr_t ListComponent_Projectile_C = 0xd0e2cf8;
+
+// Static field offsets
+constexpr uintptr_t static_fields = 0xB8;
+constexpr uintptr_t clientEntities = 0x18;
+constexpr uintptr_t entityList = 0x10;
+
+// Camera offsets
+constexpr uintptr_t Camera_Chain1 = 0xb8;
+constexpr uintptr_t Camera_Chain2 = 0xa0;
+constexpr uintptr_t Camera_Chain3 = 0x10;
+constexpr uintptr_t Camera_WrapperClass = 0xa0;
+constexpr uintptr_t Camera_ParentStatic = 0x10;
+constexpr uintptr_t Camera_Matrix = 0x30c;
+
+// FOV/Graphics offsets
+constexpr uintptr_t FIELD_OFFSET = 0xB8;
+constexpr uintptr_t FOV_OFFSET = 0x3b8;
+
+// TOD offsets
+constexpr uintptr_t TOD_STATIC_FIELDS = 0xb8;
+constexpr uintptr_t TOD_INSTANCE = 0x60;
+constexpr uintptr_t TOD_INSTANCES = 0xb0;
+constexpr uintptr_t TOD_BUFFER = 0x10;
+constexpr uintptr_t TOD_SKY = 0x20;
+constexpr uintptr_t NIGHT_PARAMS_OFFSET = 0x60;
+constexpr uintptr_t AMBIENT_MULTIPLIER_OFFSET = 0x5c;
+constexpr uintptr_t STARS_OFFSET = 0x78;
+constexpr uintptr_t STAR_SIZE_OFFSET = 0x10;
+constexpr uintptr_t STAR_BRIGHTNESS_OFFSET = 0x14;
+constexpr uintptr_t CLOUDS_OFFSET = 0x80;
+constexpr uintptr_t CLOUD_BRIGHTNESS_OFFSET = 0x30;
+
+// BaseNetworkable offsets
+namespace BaseNetworkable {
+    constexpr size_t staticFields = 0xb8;
+    constexpr size_t wrapperClassPtr = 0x18;
+    constexpr size_t parentStaticFields = 0x10;
+    constexpr size_t entity = 0x18;
+    constexpr size_t prefabId = 0x30;
+}
+
+// BaseEntity offsets
+namespace BaseEntity {
+    constexpr size_t model = 0xd0;
+    constexpr size_t Bounds = 0xa8;
+    constexpr size_t flags = 0xd8;
+    constexpr size_t triggers = 0x90;
+    constexpr size_t IsVisible = 0x178;
+    constexpr size_t IsAnimatorVisible = 0x179;
+    constexpr size_t IsShadowVisible = 0x17a;
+    constexpr size_t prefabId = 0x30;
+    constexpr size_t prefabName = 0x78;
+    constexpr size_t parentEntity = 0x68;
+}
+
+// BaseCombatEntity offsets
+namespace BaseCombatEntity {
+    constexpr size_t skeletonProperties = 0x1c8;
+    constexpr size_t LifeState = 0x23c;
+    constexpr size_t Health = 0x248;
+    constexpr size_t MaxHealth = 0x24c;
+}
+constexpr uintptr_t BaseCombatEntity_Health = 0x248;
+
+// BasePlayer offsets
+namespace BasePlayer {
+    constexpr size_t playerNames = 0x600;
+    constexpr size_t Username = 0x600;
+    constexpr size_t PlayerEyes = 0x5b8;
+    constexpr size_t PlayerInventory = 0x5c8;
+    constexpr size_t PlayerInput = 0x670;
+    constexpr size_t BaseMovement = 0x2d8;
+    constexpr size_t PlayerModel = 0x578;
+    constexpr size_t PlayerModel_Alt = 0xD0;
+    constexpr size_t PlayerFlags = 0x5a8;
+    constexpr size_t ModelState = 0x480;
+    constexpr size_t currentTeam = 0x470;
+    constexpr size_t clActiveItem = 0x4a0;
+    constexpr size_t clothingBlocksAiming = 0x684;
+    constexpr size_t clothingMoveSpeedReduction = 0x688;
+    constexpr size_t userID = 0x5f0;
+    constexpr size_t userIDString = 0x420;
+    constexpr size_t belt = 0x5c0;
+    constexpr size_t collision = 0x458;
+    constexpr size_t mounted = 0x4e0;
+    constexpr size_t maxProjectileID = 0x544;
+    constexpr size_t LastSentTick = 0x5e0;
+
+    constexpr uint32_t SleepingFlag1 = 0x10;
+    constexpr uint32_t SleepingFlag2 = 0x20;
+}
+
+// PlayerModel offsets
+namespace PlayerModel {
+    constexpr size_t position = 0x1e8;
+    constexpr size_t Velocity = 0x1f4;
+    constexpr size_t newVelocity = 0x20c;
+    constexpr auto IsNpc__BackingField = 0x31E;
+    constexpr size_t Rotation = 0x218;
+    constexpr size_t rotation = 0x218;
+    constexpr size_t GestureConfig = 0x158;
+    constexpr size_t IsNpc = 0x31e;
+    constexpr size_t multiMesh = 0x3e0;
+    constexpr size_t boneTransforms = 0x50;
+    constexpr size_t boneTransforms_Alt = 0x48;
+}
+
+// ModelState offsets
+namespace ModelState {
+    constexpr size_t flags = 0x78;
+    constexpr size_t waterLevel = 0x38;
+}
+
+// PlayerInventory offsets
+namespace PlayerInventory {
+    constexpr size_t ItemContainer = 0x30;
+    constexpr size_t containerBelt = 0x58;
+    constexpr size_t containerMain = 0x30;
+    constexpr size_t containerWear = 0x30;
+}
+
+// ItemContainer offsets
+namespace ItemContainer {
+    constexpr size_t itemList = 0x18;
+    constexpr size_t contents = 0x10;
+}
+
+// Item offsets
+namespace Item {
+    constexpr size_t ItemList = 0x18;
+    constexpr size_t itemDefinition = 0x70;
+    constexpr size_t Amount = 0x30;
+    constexpr size_t amount = 0x30;
+    constexpr size_t CurrentHealth = 0x30;
+    constexpr size_t MaxHealth = 0xcc;
+    constexpr size_t ammoCount = 0x44;
+    constexpr size_t HeldEntity = 0x50;
+    constexpr size_t HeldEntity1 = 0x90;
+    constexpr size_t uid = 0x38;
+    constexpr size_t entity = 0x10;
+    constexpr size_t heldEntity = 0x50;
+}
+
+// WorldItem offsets
+namespace WorldItem {
+    constexpr size_t item = 0x1b0;
+}
+
+// ItemDefinition offsets
+namespace ItemDefinition {
+    constexpr size_t ShortName = 0x28;
+    constexpr size_t shortname = 0x28;
+    constexpr size_t itemid = 0x20;
+    constexpr size_t ItemDisplayName = 0x40;
+    constexpr size_t displayName = 0x40;
+    constexpr size_t ItemMod = 0x160;
+    constexpr size_t ItemDisplayEnglish = 0x20;
+}
+
+// ItemDisplayName offsets
+namespace ItemDisplayName {
+    constexpr size_t englishStr = 0x18;
+}
+
+// HeldEntity offsets
+namespace HeldEntity {
+    constexpr size_t ViewModel = 0x228;
+}
+
+// BaseViewModel offsets
+namespace BaseViewModel {
+    constexpr size_t IronSights = 0xe0;
+    constexpr size_t AnimationEvents = 0xd0;
+    constexpr size_t ViewmodelBob = 0x80;
+    constexpr size_t ViewmodelSway = 0x88;
+    constexpr size_t list_ptr = 0x168;
+}
+
+// ItemModWearable offsets
+namespace ItemModWearable {
+    constexpr size_t blocksAiming = 0x54;
+    constexpr size_t occlusionType = 0x50;
+}
+
+// AttackEntity offsets
+namespace AttackEntity {
+    constexpr size_t repeatDelay = 0x244;
+    constexpr size_t deployDelay = 0x240;
+}
+
+// BaseProjectile offsets
+namespace BaseProjectile {
+    constexpr size_t reloadTime = 0x328;
+    constexpr size_t recoil = 0x358;
+    constexpr size_t primaryMagazine = 0x330;
+    constexpr size_t aimconePenalty = 0x370;
+    constexpr size_t aimCone = 0x360;
+    constexpr size_t aimconePenaltyPerShot = 0x370;
+    constexpr size_t aimSway = 0x34c;
+    constexpr size_t aimSwaySpeed = 0x350;
+    constexpr size_t projectileVelocityScale = 0x2e4;
+    constexpr size_t stancePenaltyScale = 0x380;
+    constexpr size_t aimConePenaltyMax = 0x374;
+    constexpr size_t automatic = 0x2e8;
+    constexpr size_t hipAimCone = 0x36c;
+    constexpr size_t isBurstWeapon = 0x38f;
+    constexpr size_t canChangeFireModes = 0x390;
+    constexpr size_t internalBurstFireRateScale = 0x398;
+}
+
+// RecoilProperties offsets
+namespace RecoilProperties {
+    constexpr size_t recoilYawMin = 0x18;
+    constexpr size_t recoilYawMax = 0x1c;
+    constexpr size_t recoilPitchMin = 0x20;
+    constexpr size_t recoilPitchMax = 0x24;
+    constexpr size_t aimconeCurveScale = 0x60;
+    constexpr size_t newRecoilOverride = 0x80;
+}
+
+// CompoundBowWeapon offsets
+namespace CompoundBowWeapon {
+    constexpr size_t stringHoldDurationMax = 0x428;
+    constexpr size_t movementPenaltyRampUpTime = 0x438;
+}
+
+// BowWeapon offsets
+namespace BowWeapon {
+    constexpr size_t attackReady = 0x410;
+    constexpr size_t nopullback = 0x414;
+}
+
+// FlintStrikeWeapon offsets
+namespace FlintStrikeWeapon {
+    constexpr size_t successFraction = 0x410;
+    constexpr size_t didSparkThisFrame = 0x420;
+}
+
+// Misc entity offsets
+namespace HackableLockedCrate {
+    constexpr size_t TimerText = 0x398;
+}
+
+namespace BuildingPrivlidge {
+    constexpr size_t UpkeepTime = 0x388;
+}
+
+namespace PatrolHelicopter {
+    constexpr size_t weakspots = 0x3e8;
+}
+
+// Skeleton offsets
+namespace SkeletonProperties {
+    constexpr size_t bones = 0x20;
+}
+
+namespace SkeletonProperties_BoneProperty {
+    constexpr size_t boneName = 0x18;
+    constexpr size_t area = 0x20;
+}
+
+// Transform offsets
+namespace Transform {
+    constexpr size_t get_position_Injected = 0x110ef0;
+    constexpr size_t transformAccess = 0x38;
+    constexpr size_t hierarchyAddr = 0x0;
+    constexpr size_t hierarchyIndex = 0x8;
+    constexpr size_t localTransforms = 0x18;
+    constexpr size_t parentIndices = 0x20;
+}
+
+// Model offsets
+namespace Model {
+    constexpr size_t rootBone = 0x28;
+    constexpr size_t headBone = 0x30;
+    constexpr size_t eyeBone = 0x38;
+    constexpr size_t boneTransforms = 0x50;
+    constexpr size_t boneArray = 0x20;
+    constexpr size_t boneStride = 0x8;
+    constexpr size_t boneTransform = 0x10;
+}
+
+// PlayerInput offsets
+namespace PlayerInput {
+    constexpr size_t CurrentState = 0x18;
+    constexpr size_t CurrentStateButtons = 0x20;
+    constexpr size_t State = 0x28;
+}
+
+// PlayerEyes offsets
+namespace PlayerEyes {
+    constexpr size_t ViewOffset = 0x1a4;
+    constexpr size_t eye_offset = 0x40;
+    constexpr size_t eye_rotation = 0x6c;
+    constexpr size_t body_rotation = 0x50;
+}
+
+// SkinnedMultiMesh offsets
+namespace SkinnedMultiMesh {
+    constexpr size_t Renderers = 0x40;
+    constexpr size_t RendererList = 0x58;
+    constexpr size_t MaterialList = 0x148;
+}
+
+// Bone indices
+namespace BoneIndex {
+    constexpr int l_hip = 1;
+    constexpr int l_knee = 2;
+    constexpr int l_foot = 3;
+    constexpr int l_toe = 4;
+    constexpr int pelvis = 6;
+    constexpr int r_hip = 13;
+    constexpr int r_knee = 14;
+    constexpr int r_foot = 15;
+    constexpr int r_toe = 16;
+    constexpr int spine1 = 18;
+    constexpr int spine2 = 20;
+    constexpr int spine3 = 21;
+    constexpr int spine4 = 22;
+    constexpr int l_clavicle = 23;
+    constexpr int l_upperarm = 24;
+    constexpr int l_forearm = 25;
+    constexpr int l_hand = 26;
+    constexpr int l_ulna = 45;
+    constexpr int neck = 46;
+    constexpr int head = 47;
+    constexpr int jaw = 48;
+    constexpr int eyeTransform = 49;
+    constexpr int l_eye = 50;
+    constexpr int r_eye = 52;
+    constexpr int r_clavicle = 54;
+    constexpr int r_upperarm = 55;
+    constexpr int r_forearm = 56;
+    constexpr int r_hand = 57;
+    constexpr int r_ulna = 76;
+}
+
+// Prefab IDs
+namespace PrefabId {
+    constexpr uint32_t AK47 = 0x43f9fac1;
+    constexpr uint32_t AK47U = 0x75f12c79;
+    constexpr uint32_t LR300 = 0xa9b0809d;
+    constexpr uint32_t M39 = 0x5a6cf380;
+    constexpr uint32_t M92 = 0x88b9b0de;
+    constexpr uint32_t MP5 = 0x97b99b77;
+    constexpr uint32_t Thompson = 0xc15a0047;
+    constexpr uint32_t Minigun = 0xeed8161f;
+    constexpr uint32_t T1SMG = 0xfd68c31e;
+    constexpr uint32_t Glock = 0x25ee4f6f;
+    constexpr uint32_t Speargun = 0xfe0ecefb;
+    constexpr uint32_t HuntingBow = 0xa90efc69;
+    constexpr uint32_t Rock = 0xead8ac2f;
+    
+    constexpr uint32_t CaveDweller1 = 0xf73d8fef;
+    constexpr uint32_t CaveDweller2 = 0x6f275762;
+    constexpr uint32_t CaveDweller3 = 0x6a63b108;
+    
+    constexpr uint32_t DroppedItem = 0x6b45e216;
+    constexpr uint32_t DroppedItem2 = 0xf29548d8;
+}
+
+// Pointer validation constants
+constexpr uintptr_t PTR_MIN = 0x10000;
+constexpr uintptr_t PTR_MAX = 0x7FFFFFFF0000;
+
+// Decrypt functions
+inline uint64_t DecryptPlayerInventory(uint64_t enc) {
+    uint32_t* p = (uint32_t*)&enc;
+    for (int i = 0; i < 2; i++) {
+        uint32_t v = p[i] ^ 0x9D51E80F;
+        p[i] = ((v >> 22) | (v << 10)) ^ 0xDD1AA67E;
+    }
+    return enc;
+}
+
+inline uint64_t DecryptClActiveItem(uint64_t enc) {
+    uint32_t* p = (uint32_t*)&enc;
+    for (int i = 0; i < 2; i++) {
+        p[i] = (p[i] ^ 0x498CF5E5) + 0xABEDF44D ^ 0x1684F0A0;
+    }
+    return enc;
+}
+
+inline uint64_t DecryptClientEntities(uint64_t enc) {
+    uint32_t* p = (uint32_t*)&enc;
+    for (int i = 0; i < 2; i++) {
+        uint32_t v = p[i];
+        uint32_t tmp = ((v + 0x8D23F5D) ^ 0xEF41CE88) + 0x76E788E1;
+        p[i] = (tmp << 6) | (tmp >> 26);
+    }
+    return enc;
+}
+
+inline uint64_t DecryptEntityList(uint64_t enc) {
+    uint32_t* p = (uint32_t*)&enc;
+    for (int i = 0; i < 2; i++) {
+        uint32_t v = p[i];
+        uint32_t r = ((v >> 31) | (v << 1)) + 0xC42ABB29;
+        p[i] = (r >> 20) | (r << 12);
+    }
+    return enc;
+}
+
+inline uint64_t DecryptActiveItem(uint64_t enc) {
+    return DecryptClActiveItem(enc);
+}
+
+inline uint64_t DecryptEntities(uint64_t encrypted) {
+    return DecryptClientEntities(encrypted);
+}
+
+inline uint64_t DecryptList(uint64_t encrypted) {
+    return DecryptEntityList(encrypted);
+}
+
+inline uint32_t EncryptFOV(float fov) {
+    uint32_t v = *reinterpret_cast<uint32_t*>(&fov);
+    v += 0xDF6730F4;
+    v = (v << 29) | (v >> 3);
+    v ^= 0x9DA1C2C6;
+    uint64_t r = v;
+    r = (r << 7) | (r >> 25);
+    return static_cast<uint32_t>(r);
+
+    
+}
+//Old-vre-new-driver=0
+//ver=V[ 0.01 ]
