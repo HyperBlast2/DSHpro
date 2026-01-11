@@ -391,7 +391,8 @@ inline uint64_t DecryptPlayerInventory(uint64_t enc) {
 inline uint64_t DecryptClActiveItem(uint64_t enc) {
     uint32_t* p = (uint32_t*)&enc;
     for (int i = 0; i < 2; i++) {
-        p[i] = (p[i] ^ 0x498CF5E5) + 0xABEDF44D ^ 0x1684F0A0;
+        uint32_t v = p[i] - 0x5599C7E9;
+        p[i] = ((v << 15) | (v >> 17)) - 0x49685E78;
     }
     return enc;
 }
@@ -400,8 +401,10 @@ inline uint64_t DecryptClientEntities(uint64_t enc) {
     uint32_t* p = (uint32_t*)&enc;
     for (int i = 0; i < 2; i++) {
         uint32_t v = p[i];
-        uint32_t tmp = ((v + 0x8D23F5D) ^ 0xEF41CE88) + 0x76E788E1;
-        p[i] = (tmp << 6) | (tmp >> 26);
+        v = (v << 15) | (v >> 17);
+        v += 0xE5766956;
+        v = (v << 6) | (v >> 26);
+        p[i] = v;
     }
     return enc;
 }
@@ -410,8 +413,11 @@ inline uint64_t DecryptEntityList(uint64_t enc) {
     uint32_t* p = (uint32_t*)&enc;
     for (int i = 0; i < 2; i++) {
         uint32_t v = p[i];
-        uint32_t r = ((v >> 31) | (v << 1)) + 0xC42ABB29;
-        p[i] = (r >> 20) | (r << 12);
+        v ^= 0x5923674C;
+        v = (v << 6) | (v >> 26);
+        v += 0xA293B27A;
+        v = (v << 24) | (v >> 8);
+        p[i] = v;
     }
     return enc;
 }
@@ -439,7 +445,5 @@ inline uint32_t EncryptFOV(float fov) {
 
     
 }
-//Old-vre-new-driver=0x457C1D6
+//Old-vre-new-driver=0
 //ver=V[ 0.01 ]
-//verMMM[ Y ]
-//DVL=[  ]
